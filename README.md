@@ -405,4 +405,355 @@ printf("(f + %d) = %x", i, f+i);
  i = 4 vet[4] = 5.5 *(f + 4) = 5.5 &vet[4] = ba8d72d0(f + 4) = ba8d72d0
  
 
+-----------------------------------------------------------------------------------------------------
+
+6. Assumindo que pulo[] é um vetor do tipo int, quais das seguintes expressões referenciam o
+valor do terceiro elemento do vetor?
+
+*(pulo + 2);
+
+*(pulo + 4);
+
+pulo + 4;
+
+pulo + 2;
+
+*Resposta:
+
+//pulo [3]:
+
+pulo[0]
+
+pulo[1]
+
+pulo[2] -> Terceiro Elemento
+
+pulo = pulo [0]
+
+*(pulo+2) = pulo [0+2] = pulo[2];
+
+-----------------------------------------------------------------------------------------------------
+7. Considerando a declaração int mat[4], *p, x;, quais das seguintes expressões são válidas?
+Justifique.
+
+a) p = mat + 1;
+
+b) p = mat++;
+
+c) p = ++mat;
+
+d) x = (*mat)++;
+
+*Respostas:
+
+a) Válido, está armazenando o endereço do segundo elemento do array mat[], ou seja, mat[1];
+
+b) Não é válido, não incrementa ponteiros.
+
+c) Não é válido, não incrementa ponteiros.
+
+d) Válido, incrementa o endereço do inicio do array mat[], nesse caso mat[0+n]
+
+-----------------------------------------------------------------------------------------------------
+
+8. O que fazem os seguintes programas em C?
+
+a)
+
+int main(){
+
+  int vet[] = {4,9,13};
+  
+  int i;
+  
+  for(i=0;i<3;i++){
+  
+  printf("%d ",*(vet+i));
+  
+  }
+  
+}
+
+b) 
+
+int main(){
+
+  int vet[] = {4,9,13};
+  
+  int i;
+  
+  for(i=0;i<3;i++){
+  
+  printf("%X ",vet+i);
+  
+  }
+  
+}
+
+*Resposta:
+
+a) Programa para imprimir cada valor armazenado no array vet[];
+
+*// SAÍDA: 4 9 13
+
+b) Programa que imprime o endereço de memória de cada valor armazenado no array set[].
+
+*//SAÍDA: e89df2dc e89df2e0 e89df2e4
+
+-----------------------------------------------------------------------------------------------------
+9. Seja x um vetor de 4 elementos, declarado da forma TIPO x[4];. Suponha que depois da
+declaração, x esteja armazenado no endereço de memória 4092 (ou seja, o endereço de x[0]).
+Suponha também que na máquina seja usada uma variável do tipo char ocupa 1 byte, do tipo
+int ocupa 2 bytes, do tipo float ocupa 4 bytes e do tipo double ocupa 8 bytes. Quais serão os
+valores de x+1, x+2 e x+3 se:
+
+◦ x for declarado como char?
+
+◦ x for declarado como int?
+
+◦ x for declarado como float?
+
+◦ x for declarado como double?
+
+*Resposta:
+
+       | Para X+1 | Para X+2 | Para X+3 |
+       
+Char   |  4093    |  4094    |  4095    |
+
+Int    |  4094    |  4096    |  4098    |
+
+Float  |  4096    |  409A    |  409E    |
+
+Double |  409A    |  40A2    |  40AA    |
+
+-----------------------------------------------------------------------------------------------------
+
+10. Implemente um programa de computador para testar estas suposições e compare as respostas
+oferecidas pelo programa com as respostas que você idealizou.
+
+#include <stdio.h>
+
+int main(){
+
+char x_char[]= "abcd";
+
+int  x_int[4]= {1,2,3,4}, i;
+
+float  x_float[4]= {1.0, 1.1, 1.2, 1.3};
+
+double  x_double[4]= {1.01, 1.02, 1.03, 1.04};
+
+for(i=0; i<4; i++){
+
+	printf("\n para x[%d] \n", i);
+  
+	printf("\n x_char[%d] = %p", i, &x_char[i]);
+  
+	printf("\n x_int [%d] = %p", i, &x_int[i]);
+  
+	printf("\n x_float [%d] = %p", i, &x_float[i]);
+  
+	printf("\n x_double [%d] = %p\n", i, &x_double[i]);
+  
+	printf("\n--------------------------------------------------\n");
+  
+ }
+ 
+}
+
+-----------------------------------------------------------------------------------------------------
+11.Suponha que as seguintes declarações tenham sido realizadas:
+
+float aloha[10], coisas[10][5], *pf, value = 2.2;
+
+int i=3;
+
+Identifique quais dos seguintes comandos é válido ou inválido:
+
+aloha[2] = value;
+
+scanf("%f", &aloha);
+
+aloha = value";
+
+printf("%f", aloha);
+
+coisas[4][4] = aloha[3];
+
+coisas[5] = aloha;
+
+pf = value;
+
+pf = aloha;
+
+*Resposta:
+
+a) aloha[2] = value; // Válido
+
+b) scanf("%f", &aloha); // Válido
+
+c) aloha = value"; // Inválido
+
+d) printf("%f",aloha); // Válido
+
+e) coisas [4][4]= aloha [3]; // Válido
+
+g) pf = value; // Inválido
+
+h) pf = aloha; // Válido
+
+-----------------------------------------------------------------------------------------------------
+
+12. O que é um ponteiro para uma função? Pesquise na Internet referências sobre o assunto e
+escreva um pequeno programa exemplificando o uso deste recurso.
+
+
+*Resposta:
+
+Ponteiro para uma função é um ponteiro que armazena o endereço de memória de uma função, assim podemos associar ele a uma função e usar como seu nome dentro do programa.
+
+||Código:||
+
+#include <stdio.h>
+
+int soma(int a, int b){
+
+    return a+b;
+    
+}
+
+int sub(int a, int b){
+
+    return a-b;
+    
+}
+
+int main(){
+
+    int x,y,if_soma,if_sub;
+    
+    char tipo;
+    
+    int(*p_soma)(int,int);
+    
+    int(*p_sub)(int,int);
+    
+    p_soma=soma;
+    
+    p_sub=sub;
+    
+    printf("-------------------------CALCULADORA-------------------------\n\n");
+    
+    printf("Digite qual o tipo de operação na calculadora voce deseja [-,+]: \n");
+    
+    scanf("%c",&tipo);
+    
+    printf("\nDigite o primeiro valor [X]: \n");
+    
+    scanf("%d",&x);
+    
+    printf("\nDigite o segundo valor [Y]: \n");
+    
+    scanf("%d",&y);
+    
+    if(tipo== '+'){
+    
+        if_soma= p_soma(x,y);
+        
+        printf("_____________________________________________________\n");
+        
+        printf("\n%d + %d = %d",x,y,if_soma);
+        
+    }
+    
+     if(tipo== '-'){
+     
+        if_sub= p_sub(x,y);
+        
+        printf("_____________________________________________________\n");
+        
+        printf("\n%d - %d = %d",x,y,if_sub);
+        
+    }
+    
+}
+
+-----------------------------------------------------------------------------------------------------
+13. Implemente em linguagem C uma função em um programa de computador que leia n valores do
+tipo float e os apresente em ordem crescente. Utilize alocação dinâmica de memória para
+realizar a tarefa.
+
+*Resposta:
+
+||Código||
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+int main(){
+
+  int i,n,j;
+  
+  float*x,aux;
+  
+  printf("Digite o valor de N:");
+  
+  scanf("\n%d",&n);
+  
+  x= (float*) malloc( n*sizeof(int));
+  
+  
+  printf("\nDigite os valores que deseja: \n");
+  
+  for(i=0; i<n; i++){
+  
+      printf("Digite o %dº valor = ",i+1);
+      
+      scanf("%f",&x[i]);
+      
+  }
+  
+  printf("\n-------------------------------------------------------- \n");
+  
+  for(i=0; i<n; i++){ 
+  
+    for(j=i+1;j<n;j++){
+    
+        if(x[i]<x[j]){
+        
+            x[i]=x[i];
+            
+        } else{
+        
+            aux=x[i];
+            
+            x[i]=x[j];
+            
+            x[j]=aux;
+            
+        }
+        
+    }
+    
+    }
+    
+    for(i=0;i<n;i++){
+    
+        printf("%0.2f |",x[i]);
+        
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
 
