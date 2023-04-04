@@ -19,6 +19,7 @@ d) 3 - *p/(*q) + 7;
 *Resposta:
 
 a) p==&i // Verifica a condição; True = 1
+
 b)*p-*q; // -2
 c)**&p; // 3 
 d) 3-(*p/*q)+7 // *p/*q = 0,6 -> *p e *q são inteiros logo fica: 3-0+7 = 10
