@@ -3,13 +3,12 @@ Respostas da lista 01 da matéria de Programação Avançada. Turma 02 - 2023.1
 
 ----------------------------------------------------------------------------------------------------
 1. Seja o seguinte trecho de programa:
-________________________________________
+
 int i=3,j=5;
 int *p, *q;
 p = &i;
 q = &j;
 1
-________________________________________
 
 Determine o valor das seguintes expressões: 
 a) p == &i;
@@ -26,12 +25,11 @@ d) 3-(*p/*q)+7 // *p/*q = 0,6 -> *p e *q são inteiros logo fica: 3-0+7 = 10
 
 ----------------------------------------------------------------------------------------------------
 2. Mostre o que será impresso por programa supondo que i ocupa o endereço 4094 na memória.
-__________________________________________________________
+
 int i=5, *p;
 p = &i;
 printf("%x %d %d %d %d", p,*p+2,**&p,3**p,**&p+4);
 }
-__________________________________________________________
 
 *Resposta:
 
@@ -50,7 +48,7 @@ __________________________________________________________
 
 3. Se i e j são variáveis inteiras e p e q ponteiros para int, quais das seguintes expressões de
 atribuição são ilegais?
-_______________________________________________________
+
 a) p = i;
 b) q = &j;
 c) p = &*&i;
@@ -59,7 +57,6 @@ e) i = *&j;
 f) i = *&*&j;
 g) q = *p;
 h) i = (*p)++ + *q;
-______________________________________________________
 
 *Resposta:
 
