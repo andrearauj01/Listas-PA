@@ -889,6 +889,7 @@ void(*pf[]) (int, int*)= {crescente,decrescente};
 int n,i,o;
 int *x;
 printf("Digite a quantidade de numeros desejados: \n");
+
 scanf("%d",&n);
 
 printf("\n-------------------------------------------------------- \n");
@@ -905,6 +906,7 @@ for(i=0; i<n; i++){
 printf("\n-------------------------------------------------------- \n");
 
 printf("Digite qual ordenação você deseja [0 para crescente e 1 para decrescente]: \n");
+
 scanf("%d",&o);
 
 (*pf[o])(n,&x[0]);
