@@ -1057,7 +1057,9 @@ free(x);
 |CODIGO DA QUESTÃO 14 com o CLOCK()|
 
 #include <stdio.h>
+
 #include <stdlib.h>
+
 #include <time.h>
 
 int crescente (const void* a, const void* b ){ 
