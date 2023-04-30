@@ -769,7 +769,7 @@ int crescente (const void* a, const void* b ){ // vai receber dois valores para 
     }
     
     if (*(int*) a > *(int*)b){
-        return 1;/ / se o elemento b for menor que o a ele vai deixar o elemento b antes do a
+        return 1; // se o elemento b for menor que o a ele vai deixar o elemento b antes do a
     }
     
 }
