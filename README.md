@@ -1123,3 +1123,97 @@ printf("Tempo de execução = %f s", tempo/CLOCKS_PER_SEC);
 
 |TEMPO DE EXECUÇÃO = 0.000003s|
 
+-----------------------------------------------------------------------------------------------------
+
+17. . Escreva uma função em linguagem C que escreva em um vetor a soma dos elementos
+correspondentes de outros dois vetores (os tamanhos dos vetores devem ser fornecidos pelo
+usuário). Por exemplo, se o primeiro vetor contiver os elementos 1, 3, 0 e -2, e o segundo vetor
+contiver os elementos 3, 5, -3 e 1, o vetor de soma terá valores resultantes iguais a 4, 8, -3 e -1. A
+função deve receber 4 argumentos: os nomes dos três vetores e o número de elementos
+presentes em cada vetor.
+
+| CÓDIGO |
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+void somar( int *a, int *b, int *c, int tam){
+    
+    int i;
+    
+    for(i=0; i<tam;i++){
+        c[i]= a[i]+b[i];
+    }
+    
+}
+
+
+int main(){
+
+int *x,*y, *z,n,i;
+
+x = (int*) malloc( n*sizeof(int));
+
+y = (int*) malloc( n*sizeof(int));
+
+z = (int*) malloc( n*sizeof(int));  
+
+printf("Digite o valor de N: \n");
+
+scanf("%d",&n);
+
+printf("\n----------------------PARA O VETOR X------------------------ \n");
+   
+   for(i=0; i<n; i++){
+
+  
+  printf("Digite o x[%d] = ",i);
+  
+  scanf("%d",&x[i]);
+    
+  
+  }
+    
+
+printf("\n----------------------PARA O VETOR Y------------------------ \n");    
+   
+   for(i=0; i<n; i++){
+
+   
+   printf("Digite o y[%d] = ",i);
+   
+   scanf("%d",&y[i]);
+    
+   
+   }
+
+
+
+
+somar(&x[0],&y[0],&z[0],n);
+
+
+printf("\n----------------------VETOR RESULTADO------------------------ \n");
+
+
+printf("Vetor RESULTADO = [");
+
+for(i=0;i<n;i++){
+    
+    
+   if(i!=n-1){
+   
+   printf("%d, ",z[i]);
+   
+   } else{
+  
+  printf("%d",z[i]); 
+  
+  }
+    
+}
+
+printf("]");
+
+}
