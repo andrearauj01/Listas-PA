@@ -755,6 +755,7 @@ código, explicando o que faz cada uma das linhas.
 ||CÓDIGO||
 
 #include <stdio.h>
+
 #include <stdlib.h>
 
 int crescente (const void* a, const void* b ){
