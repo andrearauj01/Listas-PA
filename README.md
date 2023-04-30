@@ -1060,38 +1060,38 @@ free(x);
 #include <stdlib.h>
 #include <time.h>
 
-int crescente (const void* a, const void* b ){ // vai receber dois valores para comparar
+int crescente (const void* a, const void* b ){ 
     
     if (*(int*) a == *(int*)b){
-        return 0; // se o elemento for igual ao outro, ele vai retornar zero e não vai fazer a alteração da ordem
+        return 0; 
     }
     
     if (*(int*) a < *(int*)b){
-        return -1;// se o elemento a for menor que o b ele vai deixar o elemento a antes do b
+        return -1;
     }
     
     if (*(int*) a > *(int*)b){
-        return 1;// se o elemento b for menor que o a ele vai deixar o elemento b antes do a
+        return 1;
     }
     
 }
 
 int main(){
 
-  int n,i; //Declarando as variáveis: N para o tamanho do vetor e i para a variável contadora dos For
+  int n,i; 
   
-  float*x;// Declarando o Vetor X
+  float*x;
   
   printf("Digite o valor de N:");
   
-  scanf("\n%d",&n);// Recebendo o tamanho do vetor X
+  scanf("\n%d",&n);
   
-  x= (float*) malloc( n*sizeof(int));// Criando o vetor do tamanho desejado
+  x= (float*) malloc( n*sizeof(int));
   
   
   printf("\nDigite os valores que deseja: \n");
   
-  for(i=0; i<n; i++){ //Colocando valores dentro do vetor
+  for(i=0; i<n; i++){ 
   
       printf("Digite o %dº valor = ",i+1);
       
@@ -1100,14 +1100,14 @@ int main(){
   }
   
   clock_t inicio = clock();
-  qsort(x,n,sizeof(float),crescente); // usando a função qsort para ordenar os valores do vetor X; qsort(vetor,tamanho dele, tamanho dos tipos de elementos do vetor, nome da função que compara.
+  qsort(x,n,sizeof(float),crescente); 
   clock_t fim = clock();
   
   printf("\n-------------------------------------------------------- \n");
   
   for(i=0;i<n;i++){
     
-        printf("%0.2f |",x[i]); //Lendo cada valor do vetor depois de ser ordenado
+        printf("%0.2f |",x[i]); 
         
     }
     
