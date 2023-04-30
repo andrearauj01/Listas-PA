@@ -1056,6 +1056,68 @@ free(x);
 
 |CODIGO DA QUESTÃO 14 com o CLOCK()|
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
+int crescente (const void* a, const void* b ){ // vai receber dois valores para comparar
+    
+    if (*(int*) a == *(int*)b){
+        return 0; // se o elemento for igual ao outro, ele vai retornar zero e não vai fazer a alteração da ordem
+    }
+    
+    if (*(int*) a < *(int*)b){
+        return -1;// se o elemento a for menor que o b ele vai deixar o elemento a antes do b
+    }
+    
+    if (*(int*) a > *(int*)b){
+        return 1;// se o elemento b for menor que o a ele vai deixar o elemento b antes do a
+    }
+    
+}
 
+int main(){
+
+  int n,i; //Declarando as variáveis: N para o tamanho do vetor e i para a variável contadora dos For
+  
+  float*x;// Declarando o Vetor X
+  
+  printf("Digite o valor de N:");
+  
+  scanf("\n%d",&n);// Recebendo o tamanho do vetor X
+  
+  x= (float*) malloc( n*sizeof(int));// Criando o vetor do tamanho desejado
+  
+  
+  printf("\nDigite os valores que deseja: \n");
+  
+  for(i=0; i<n; i++){ //Colocando valores dentro do vetor
+  
+      printf("Digite o %dº valor = ",i+1);
+      
+      scanf("%f",&x[i]);//
+      
+  }
+  
+  clock_t inicio = clock();
+  qsort(x,n,sizeof(float),crescente); // usando a função qsort para ordenar os valores do vetor X; qsort(vetor,tamanho dele, tamanho dos tipos de elementos do vetor, nome da função que compara.
+  clock_t fim = clock();
+  
+  printf("\n-------------------------------------------------------- \n");
+  
+  for(i=0;i<n;i++){
+    
+        printf("%0.2f |",x[i]); //Lendo cada valor do vetor depois de ser ordenado
+        
+    }
+    
+printf("\n---------------------TEMPO---------------------- \n");  
+float tempo = fim-inicio;
+
+printf("Tempo de execução = %f s", tempo/CLOCKS_PER_SEC);
+    
+ free(x);   
+}
+
+|TEMPO DE EXECUÇÃO = 0.000003s|
 
