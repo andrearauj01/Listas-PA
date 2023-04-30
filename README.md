@@ -927,9 +927,134 @@ free(x);
 
 }
 
+-----------------------------------------------------------------------------------------------------
+
+16. Procure na internet mecanismos que possibilitem medir tempos de execução de rotinas
+computacionais. Geralmente, estas medidas são realizadas com o auxílio de funções em C que
+lêem a hora no sistema (sistemas Unix e Windows geralmente usam funções diferentes).
+Utilizando os conhecimentos que você obteve com sua pesquisa, meça os tempos de execução
+das implementações que você criou para os dois problemas de ordenação anteriores,
+considerando apenas arrays de elementos tipo int e compare os resultados obtidos. O que se
+conclui nesse caso?
+
+
+|CODIGO DA QUESTÃO 15 com o CLOCK()|
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void crescente(int a, int *b){
+    int aux;
+    
+    for(int i=0; i<a; i++){
+
+    for(int j=i+1;j<a;j++){
+
+    if(b[i]<b[j]){
+    
+        b[i]=b[i];
+        
+    } else{
+    
+        aux=b[i];
+        
+        b[i]=b[j];
+        
+        b[j]=aux;
+        
+    }
+    
+}
+
+}
+  
+    
+}
+
+void decrescente (int a, int *b){
+    int aux;
+    
+    for(int i=0; i<a; i++){
+
+    for(int j=i+1;j<a;j++){
+
+    if(b[i]>b[j]){
+    
+        b[i]=b[i];
+        
+    } else{
+    
+        aux=b[i];
+        
+        b[i]=b[j];
+        
+        b[j]=aux;
+        
+    }
+    
+}
+
+}
+  
+    
+}
 
 
 
+int main(){
+void(*pf[]) (int, int*)= {crescente,decrescente};
+
+int n,i,o;
+int *x;
+
+printf("Digite a quantidade de numeros desejados: \n");
+scanf("%d",&n);
+
+printf("\n-------------------------------------------------------- \n");
+
+x = (int*) malloc( n*sizeof(int));
+
+for(i=0; i<n; i++){
+
+  printf("Digite o %dº valor = ",i+1);
+  
+  scanf("%d",&x[i]);
+}
+
+printf("\n-------------------------------------------------------- \n");
+
+printf("Digite qual ordenação você deseja [0 para crescente e 1 para decrescente]: \n");
+scanf("%d",&o);
+
+clock_t inicio = clock();
+
+(*pf[o])(n,&x[0]);
+
+clock_t fim = clock();
+
+printf("\n-------------------RESULTADO----------------------- \n");
+  for(int i=0;i<n;i++){
+
+    if(i!=n-1){
+    printf(" %d |",x[i]);
+    } else{
+       printf(" %d \n",x[i]); 
+    }
+}
+
+printf("\n-------------------TEMPO----------------------- \n");
+
+float tempo = fim-inicio;
+
+printf("Tempo de execução = %f s", tempo/CLOCKS_PER_SEC);
+
+free(x);
+}
+
+|TEMPO DE EXECUÇÃO = 0.000003s|
+
+|CODIGO DA QUESTÃO 14 com o CLOCK()|
 
 
 
