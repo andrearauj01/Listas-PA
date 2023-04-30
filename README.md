@@ -810,6 +810,114 @@ int main(){
  free(x);   
 }
 
+-----------------------------------------------------------------------------------------------------
+
+15. Utilize a ideia do ponteiro para função pela função qsort() para implementar sua própria função
+de ordenação, mas que seja capaz de ordenar apenas inteiros do tipo int. Para isso, sua função
+deverá receber, entre outros argumentos, um ponteiro para a função de comparação que
+determinará como os elementos do array serão ordenados.
+
+||CÓDIGO||
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void crescente(int a, int *b){
+    int aux;
+    
+    for(int i=0; i<a; i++){
+
+    for(int j=i+1;j<a;j++){
+
+    if(b[i]<b[j]){
+    
+        b[i]=b[i];
+        
+    } else{
+    
+        aux=b[i];
+        
+        b[i]=b[j];
+        
+        b[j]=aux;
+        
+    }
+    
+}
+
+}
+  
+    
+}
+
+void decrescente (int a, int *b){
+    int aux;
+    
+    for(int i=0; i<a; i++){
+
+    for(int j=i+1;j<a;j++){
+
+    if(b[i]>b[j]){
+    
+        b[i]=b[i];
+        
+    } else{
+    
+        aux=b[i];
+        
+        b[i]=b[j];
+        
+        b[j]=aux;
+        
+    }
+    
+}
+
+}
+  
+    
+}
+
+
+
+int main(){
+void(*pf[]) (int, int*)= {crescente,decrescente};
+
+int n,i,o;
+int *x;
+printf("Digite a quantidade de numeros desejados: \n");
+scanf("%d",&n);
+
+printf("\n-------------------------------------------------------- \n");
+
+x = (int*) malloc( n*sizeof(int));
+
+for(i=0; i<n; i++){
+
+  printf("Digite o %dº valor = ",i+1);
+  
+  scanf("%d",&x[i]);
+}
+
+printf("\n-------------------------------------------------------- \n");
+
+printf("Digite qual ordenação você deseja [0 para crescente e 1 para decrescente]: \n");
+scanf("%d",&o);
+
+(*pf[o])(n,&x[0]);
+
+printf("\n-------------------RESULTADO----------------------- \n");
+  for(int i=0;i<n;i++){
+
+    if(i!=n-1){
+    printf(" %d |",x[i]);
+    } else{
+       printf(" %d",x[i]); 
+    }
+}
+
+free(x);
+}
 
 
 
