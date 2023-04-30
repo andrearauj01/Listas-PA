@@ -744,10 +744,70 @@ int main(){
         printf("%0.2f |",x[i]);
         
     }
+ free(x);   
+}
+
+-----------------------------------------------------------------------------------------------------
+
+14. Reimplemente o programa da questão anterior utilizando a função qsort() do C. Comente o seu
+código, explicando o que faz cada uma das linhas.
+
+||CÓDIGO||
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int crescente (const void* a, const void* b ){
+    
+    if (*(int*) a == *(int*)b){
+        return 0;
+    }
+    
+    if (*(int*) a < *(int*)b){
+        return -1;
+    }
+    
+    if (*(int*) a > *(int*)b){
+        return 1;
+    }
     
 }
 
+int main(){
 
+  int n,i;
+  
+  float*x;
+  
+  printf("Digite o valor de N:");
+  
+  scanf("\n%d",&n);
+  
+  x= (float*) malloc( n*sizeof(int));
+  
+  
+  printf("\nDigite os valores que deseja: \n");
+  
+  for(i=0; i<n; i++){
+  
+      printf("Digite o %dº valor = ",i+1);
+      
+      scanf("%f",&x[i]);
+      
+  }
+  
+  qsort(x,n,sizeof(float),crescente);
+  
+  printf("\n-------------------------------------------------------- \n");
+  
+  for(i=0;i<n;i++){
+    
+        printf("%0.2f |",x[i]);
+        
+    }
+    
+ free(x);   
+}
 
 
 
