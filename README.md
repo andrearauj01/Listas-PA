@@ -820,6 +820,7 @@ determinará como os elementos do array serão ordenados.
 ||CÓDIGO||
 
 #include <stdio.h>
+
 #include <stdlib.h>
 
 void crescente(int a, int *b){
