@@ -824,7 +824,8 @@ determinará como os elementos do array serão ordenados.
 #include <stdlib.h>
 
 void crescente(int a, int *b){
-    int aux;
+
+int aux;
     
     for(int i=0; i<a; i++){
 
@@ -852,7 +853,8 @@ void crescente(int a, int *b){
 }
 
 void decrescente (int a, int *b){
-    int aux;
+
+int aux;
     
     for(int i=0; i<a; i++){
 
