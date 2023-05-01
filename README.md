@@ -1217,3 +1217,209 @@ for(i=0;i<n;i++){
 printf("]");
 
 }
+
+-----------------------------------------------------------------------------------------------------
+18. Crie uma função capaz de realizar multiplicação matricial da forma C = AxB. A função deve
+receber 6 argumentos: os ponteiros para as matrizes A, B e C, o número de linhas e colunas de A
+e o número de colunas de B (assuma que o número de coluna de A é igual ao número de linhas
+de B). O resultado da multiplicação deve ficar armazenado em C. Crie um programa para testar
+sua implementação, capaz de utilizar a função de multiplicação e imprimir as três matrizes. A
+função criada para multiplicação não deve realizar nenhum tipo de saída de dados no terminal.
+
+|CÓDIGO|
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+
+int multiplicar( int **a, int **b, int **c, int nl_a, int nc_a,int nc_b){
+    
+    
+   int i,j,k,soma,mult;
+   
+   for(i=0; i<nl_a; i++){
+   
+   for(j=0;j<nc_b;j++){
+	
+       
+   for(k=0;k<nc_a;k++){
+   
+    c[i][j]= c[i][j]+(a[i][k]*b[k][j]);
+    
+            }
+	    
+    }
+    
+} 
+
+
+}
+
+
+
+int main(){
+
+
+int **a,**b, **c, nc_a, nl_a, nc_b, nl_b,i,j;
+
+
+printf("-----------------------------MATRIZ A---------------------------\n");
+
+
+printf("Digite o Número de Linhas de A: ");
+
+scanf("%d",&nl_a);
+
+
+printf("Digite o Número de colunas de A: ");
+
+scanf("%d",&nc_a);
+
+
+printf("-----------------------------MATRIZ B---------------------------\n");
+
+nl_b =nc_a; 
+
+printf("Digite o Número de colunas de B: ");
+
+scanf("%d",&nc_b);
+
+
+printf("----------------------------VALORES DA MATRIZ A------------------\n");
+
+a =  (int**) malloc( nl_a*sizeof(int));
+
+a [0] =  (int*) malloc( nl_a*nc_a*sizeof(int));
+
+
+for(i=1; i<nl_a;i++){
+
+    
+    a[i]= a[i-1]+nc_a;
+    
+}
+
+
+for(i=0; i<nl_a; i++){
+
+    
+    for(j=0;j<nc_a;j++){
+    
+        printf("Valor de a[%d][%d] = ",i,j);
+	
+        scanf("%d",&a[i][j]);
+	
+    }
+    
+    
+}
+
+
+printf("----------------------------Visualização MATRIZ A------------------\n");
+
+for(i=0; i<nl_a; i++){
+
+    printf("[");
+    
+    for(j=0;j<nc_a;j++){
+    
+        printf("%d ",a[i][j]);
+	
+    }
+    
+    printf("]\n");
+    
+}
+
+
+
+printf("----------------------------VALORES DA MATRIZ B------------------\n");
+
+b =  (int**) malloc( nl_b*sizeof(int));
+
+b [0] =  (int*) malloc( nl_a*nc_b*sizeof(int));
+
+
+for(i=1; i<nl_b;i++){
+
+    
+    b[i]= b[i-1]+nc_b;
+    
+}
+
+
+for(i=0; i<nl_b; i++){
+
+    
+    for(j=0;j<nc_b;j++){
+    
+        printf("Valor de b[%d][%d] = ",i,j);
+	
+        scanf("%d",&b[i][j]);
+	
+    }
+    
+    
+}
+
+printf("----------------------------Visualização MATRIZ B------------------\n");
+
+for(i=0; i<nl_b; i++){
+
+    printf("[");
+    
+    for(j=0;j<nc_b;j++){
+    
+        printf("%d ",b[i][j]);
+	
+    }
+    
+    printf("]\n");
+    
+}
+
+
+//Criando a matriz Criando
+
+
+c =  (int**) malloc( nl_a*sizeof(int));
+
+c [0] =  (int*) malloc( nl_a*nc_b*sizeof(int));
+
+
+for(i=1; i<nl_a;i++){
+
+    
+    c[i]= c[i-1]+nc_b;
+    
+}
+
+
+
+
+multiplicar(a,b,c,nl_a,nc_a,nc_b);
+
+
+printf("----------------------------Resultado de AxB --------------------\n");
+
+
+printf("\n");
+
+
+for(i=0; i<nl_a; i++){
+
+    printf("[");
+    
+    for(j=0;j<nc_b;j++){
+    
+        printf("%d ",c[i][j]);
+	
+    }
+    
+    printf("]\n");
+    
+}
+
+
+}
