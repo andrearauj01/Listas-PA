@@ -1,0 +1,14 @@
+7. Considerando a declaração int mat[4], *p, x;, quais das seguintes expressões são válidas?
+Justifique.
+
+a) p = mat + 1;
+b) p = mat++;
+c) p = ++mat;
+d) x = (*mat)++;
+
+*Respostas:
+
+a) Válido, está armazenando o endereço do segundo elemento do array mat[], ou seja, mat[1];
+b) Não é válido, não incrementa ponteiros.
+c) Não é válido, não incrementa ponteiros.
+d) Válido, incrementa o endereço do inicio do array mat[], nesse caso mat[0+n]

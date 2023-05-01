@@ -1,0 +1,34 @@
+. O que fazem os seguintes programas em C?
+
+a)
+
+int main(){
+
+  int vet[] = {4,9,13};
+  int i;
+
+  for(i=0;i<3;i++){
+  	printf("%d ",*(vet+i));
+  }
+  
+}
+
+b) 
+
+int main(){
+  int vet[] = {4,9,13};
+  int i;
+ 
+  for(i=0;i<3;i++){
+  	printf("%X ",vet+i);
+  }
+  
+}
+
+*Resposta:
+
+a) Programa para imprimir cada valor armazenado no array vet[];
+*// SAÍDA: 4 9 13
+
+b) Programa que imprime o endereço de memória de cada valor armazenado no array set[].
+*//SAÍDA: e89df2dc e89df2e0 e89df2e4

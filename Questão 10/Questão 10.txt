@@ -1,0 +1,21 @@
+10. Implemente um programa de computador para testar estas suposições e compare as respostas
+oferecidas pelo programa com as respostas que você idealizou.
+
+#include <stdio.h>
+
+int main(){
+	char x_char[]= "abcd";
+	int  x_int[4]= {1,2,3,4}, i;
+	float  x_float[4]= {1.0, 1.1, 1.2, 1.3};
+	double  x_double[4]= {1.01, 1.02, 1.03, 1.04};
+	for(i=0; i<4; i++){
+		printf("\n para x[%d] \n", i);
+		printf("\n x_char[%d] = %p", i, &x_char[i]);
+		printf("\n x_int [%d] = %p", i, &x_int[i]);
+		printf("\n x_float [%d] = %p", i, &x_float[i]);
+		printf("\n x_double [%d] = %p\n", i, &x_double[i]);
+		printf("\n--------------------------------------------------\n");
+  
+ 	}
+ 
+}
