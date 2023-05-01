@@ -1,0 +1,51 @@
+12. O que é um ponteiro para uma função? Pesquise na Internet referências sobre o assunto e
+escreva um pequeno programa exemplificando o uso deste recurso.
+
+
+*Resposta:
+
+Ponteiro para uma função é um ponteiro que armazena o endereço de memória de uma função, assim podemos associar ele a uma função e usar como seu nome dentro do programa.
+
+||Código:||
+
+#include <stdio.h>
+
+int soma(int a, int b){
+    return a+b;
+}
+
+int sub(int a, int b){
+    return a-b;
+}
+
+int main(){
+
+    int x,y,if_soma,if_sub;
+    char tipo;
+    int(*p_soma)(int,int);
+    int(*p_sub)(int,int);
+    p_soma=soma;
+    p_sub=sub;
+    printf("-------------------------CALCULADORA-------------------------\n\n");
+
+    printf("Digite qual o tipo de operação na calculadora voce deseja [-,+]: \n");
+    scanf("%c",&tipo);
+
+    printf("\nDigite o primeiro valor [X]: \n");
+    scanf("%d",&x);
+
+    printf("\nDigite o segundo valor [Y]: \n");
+    scanf("%d",&y);
+    
+    if(tipo== '+'){
+        if_soma= p_soma(x,y);
+        printf("_____________________________________________________\n");
+        printf("\n%d + %d = %d",x,y,if_soma);
+    }
+    
+     if(tipo== '-'){
+        if_sub= p_sub(x,y);
+        printf("_____________________________________________________\n");
+        printf("\n%d - %d = %d",x,y,if_sub);
+    }
+}
