@@ -8,89 +8,57 @@ presentes em cada vetor.
 | CÓDIGO |
 
 #include <stdio.h>
-
 #include <stdlib.h>
 
 void somar( int *a, int *b, int *c, int tam){
-    
     int i;
-    
     for(i=0; i<tam;i++){
         c[i]= a[i]+b[i];
     }
-    
 }
-
 
 int main(){
+	int *x,*y, *z,n,i;
+	x = (int*) malloc( n*sizeof(int));
+	y = (int*) malloc( n*sizeof(int));
+	z = (int*) malloc( n*sizeof(int));  
+	printf("Digite o valor de N: \n");
+	scanf("%d",&n);
 
-int *x,*y, *z,n,i;
+	printf("\n----------------------PARA O VETOR X------------------------ \n");
+   	
+	for(i=0; i<n; i++){
+		printf("Digite o x[%d] = ",i);
+		scanf("%d",&x[i]);
+	}
 
-x = (int*) malloc( n*sizeof(int));
-
-y = (int*) malloc( n*sizeof(int));
-
-z = (int*) malloc( n*sizeof(int));  
-
-printf("Digite o valor de N: \n");
-
-scanf("%d",&n);
-
-printf("\n----------------------PARA O VETOR X------------------------ \n");
+	printf("\n----------------------PARA O VETOR Y------------------------ \n");    
    
-   for(i=0; i<n; i++){
+   	for(i=0; i<n; i++){
+		printf("Digite o y[%d] = ",i);
+		scanf("%d",&y[i]);
+	}
 
+	somar(&x[0],&y[0],&z[0],n);
+
+	printf("\n----------------------VETOR RESULTADO------------------------ \n");
+
+	printf("Vetor RESULTADO = [");
+
+	for(i=0;i<n;i++){
+		if(i!=n-1){
+  			printf("%d, ",z[i]);
+   		} else{
+  			printf("%d",z[i]); 
   
-  printf("Digite o x[%d] = ",i);
-  
-  scanf("%d",&x[i]);
+  		}
     
-  
-  }
-    
+	}
 
-printf("\n----------------------PARA O VETOR Y------------------------ \n");    
-   
-   for(i=0; i<n; i++){
+	printf("]");
 
-   
-   printf("Digite o y[%d] = ",i);
-   
-   scanf("%d",&y[i]);
-    
-   
-   }
-
-
-
-
-somar(&x[0],&y[0],&z[0],n);
-
-
-printf("\n----------------------VETOR RESULTADO------------------------ \n");
-
-
-printf("Vetor RESULTADO = [");
-
-for(i=0;i<n;i++){
-    
-    
-   if(i!=n-1){
-   
-   printf("%d, ",z[i]);
-   
-   } else{
-  
-  printf("%d",z[i]); 
-  
-  }
-    
-}
-
-printf("]");
-
-free(x);
-free(y);
-free(z);
+	free(x);
+	free(y);
+	free(z);
 
 }

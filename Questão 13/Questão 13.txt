@@ -13,22 +13,17 @@ realizar a tarefa.
 int main(){
 
   int i,n,j;
-  
   float*x,aux;
-  
+
   printf("Digite o valor de N:");
-  
   scanf("\n%d",&n);
   
   x= (float*) malloc( n*sizeof(int));
-  
-  
+
   printf("\nDigite os valores que deseja: \n");
-  
+
   for(i=0; i<n; i++){
-  
       printf("Digite o %dº valor = ",i+1);
-      
       scanf("%f",&x[i]);
       
   }
@@ -36,31 +31,21 @@ int main(){
   printf("\n-------------------------------------------------------- \n");
   
   for(i=0; i<n; i++){ 
-  
     for(j=i+1;j<n;j++){
-    
         if(x[i]<x[j]){
-        
             x[i]=x[i];
-            
         } else{
-        
             aux=x[i];
-            
             x[i]=x[j];
-            
             x[j]=aux;
-            
         }
         
     }
     
-    }
+  }
     
     for(i=0;i<n;i++){
-    
         printf("%0.2f |",x[i]);
-        
     }
  free(x);   
 }
